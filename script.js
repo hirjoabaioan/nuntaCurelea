@@ -66,43 +66,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
 const form = document.getElementById('rsvp-form');
 const formMessage = document.getElementById('form-message');
-const submitButton = form.querySelector('button[type="submit"]');
 
 form.addEventListener('submit', function(e) {
     e.preventDefault(); // Oprește reîncărcarea paginii
 
-    // Dezactivează butonul și afișează un text de așteptare
-    submitButton.disabled = true;
-    submitButton.textContent = 'Se trimite...';
-
+    // URL-ul obținut de la Google Apps Script
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwhjfu4qHdO6Qu8TzGVAEcf3pSHd9z0-DSL3KxSdzftl6XC0xND6PKlE3jUvwNdPvG1-w/exec'; 
-    const formData = new FormData(form);
 
-    fetch(scriptURL, { method: 'POST', body: formData })
-        .then(response => response.json()) // Așteaptă un răspuns JSON de la server
-        .then(data => {
-            if (data.result === 'success') {
-                formMessage.textContent = 'Mulțumim pentru răspuns! A fost înregistrat cu succes.';
-                formMessage.className = 'success';
-                form.reset();
-                // Ascunde din nou secțiunile condiționale
-                document.getElementById('form-da').classList.add('hidden');
-                document.getElementById('form-nu').classList.add('hidden');
-                document.getElementById('nr-copii-grup').classList.add('hidden');
-            } else {
-                // Afișează o eroare dacă serverul a raportat una
-                throw new Error(data.error || 'A apărut o eroare necunoscută.');
-            }
-        })
-        .catch(error => {
-            formMessage.textContent = 'A apărut o eroare la trimitere. Vă rugăm să încercați din nou.';
-            formMessage.className = 'error';
-            console.error('Error!', error.message);
-        })
-        .finally(() => {
-            // Reactivează butonul indiferent de rezultat
-            formMessage.classList.remove('hidden');
-            submitButton.disabled = false;
-            submitButton.textContent = 'Trimite Răspuns';
-        });
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    fetch(scriptURL, { 
+        method: 'POST',
+        mode: 'no-cors', // Important pentru a evita erorile CORS cu Apps Script
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        formMessage.textContent = 'Mulțumim pentru răspuns! A fost înregistrat cu succes.';
+        formMessage.className = 'success'; // Aplică clasa de stil
+        formMessage.classList.remove('hidden');
+        form.reset(); // Golește formularul
+        // Ascunde din nou secțiunile condiționale
+        document.getElementById('form-da').classList.add('hidden');
+        document.getElementById('form-nu').classList.add('hidden');
+        document.getElementById('nr-copii-grup').classList.add('hidden');
+    })
+    .catch(error => {
+        formMessage.textContent = 'A apărut o eroare. Vă rugăm să încercați din nou.';
+        formMessage.className = 'error';
+        formMessage.classList.remove('hidden');
+        console.error('Error!', error.message);
+    });
 });
