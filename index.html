@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bianca & Ionuț - 18.10.2025</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonturi moderne si elegante -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 1. Sectiunea Hero - Prima impresie cu efect parallax -->
+    <header class="hero-section" style="background-image: url('images/poza-hero.jpg');">
+        <div class="hero-content">
+            <h2>Bianca & Ionuț</h2>
+            <h1>Save the Date</h1>
+            <p>18 Octombrie 2025</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2. Sectiunea de Invitatie -->
+        <section class="content-section">
+            <h2>Vă invităm cu drag la nunta noastră!</h2>
+            <p>Cu sufletele pline de bucurie, am ales ziua de 18 Octombrie 2025 pentru a ne uni destinele în fața lui Dumnezeu, alături de cei care ne-au luminat calea:</p>
+            <div class="parents-section">
+                <div>
+                    <strong>Părinții Miresei</strong><br>
+                    Aurelia & Mirel Tene
+                </div>
+                <div>
+                    <strong>Părinții Mirelui</strong><br>
+                    Elena & Mihail Curelea
+                </div>
+            </div>
+            <p>Ne vor fi alături ca părinți spirituali:</p>
+            <p class="nasi"><strong>Nașii Noștri</strong><br> Alexandra & Valentin Curelea</p>
+        </section>
+
+        <!-- 3. Sectiune Parallax 1 - O pauza vizuala -->
+        <div class="parallax-section" style="background-image: url('images/poza-confetti.jpg');"></div>
+
+        <!-- 4. Sectiunea Program -->
+        <section class="content-section">
+            <h2>Programul Evenimentului</h2>
+            <div class="event-details">
+                <div class="event-item">
+                    <h3>Cununia Religioasă</h3>
+                    <p>Ora 18:00</p>
+                    <p>Biserica Belvedere</p>
+                    <p>Str. Cărvunarilor nr. 2, Sector 6, București</p>
+                </div>
+                <div class="event-item">
+                    <h3>Petrecerea</h3>
+                    <p>Începând cu ora 20:00</p>
+                    <p>Restaurantul Magic Place Events Grant</p>
+                    <p>Șoseaua Virtuții nr. 155, Sector 6, București</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Sectiune Parallax 2 -->
+        <div class="parallax-section" style="background-image: url('images/poza-full.jpg');"></div>
+        
+        <!-- 6. Sectiunea Countdown Timer -->
+        <section class="content-section dark-bg">
+             <h2>Timp rămas până la eveniment</h2>
+             <div id="timer">
+                <div class="timer-box"><div><span id="days">0</span></div>Zile</div>
+                <div class="timer-box"><div><span id="hours">0</span></div>Ore</div>
+                <div class="timer-box"><div><span id="minutes">0</span></div>Minute</div>
+                <div class="timer-box"><div><span id="seconds">0</span></div>Secunde</div>
+            </div>
+        </section>
+
+        <!-- 7. Sectiunea RSVP (Formular) -->
+        <section class="content-section rsvp-section">
+             <div class="rsvp-image-container">
+                 <img src="images/poza-detaliu.jpg" alt="Detalii nunta">
+             </div>
+             <div class="rsvp-form-container">
+                <h2>Confirmare Prezență</h2>
+                <p>Vă rugăm să ne confirmați prezența până la data de 01.10.2025 pentru a ne putea bucura împreună.</p>
+            
+            <form id="rsvp-form">
+                <div class="form-group">
+                    <label>Veți participa la eveniment?</label>
+                    <input type="radio" id="prezenta-da" name="prezenta" value="Da" required>
+                    <label for="prezenta-da">Da</label>
+                    <input type="radio" id="prezenta-nu" name="prezenta" value="Nu">
+                    <label for="prezenta-nu">Nu</label>
+                </div>
+
+                <!-- Câmpuri pentru cei care NU participă -->
+                <div id="form-nu" class="hidden">
+                    <div class="form-group">
+                        <label for="nume-nu">Nume și Prenume:</label>
+                        <input type="text" id="nume-nu" name="nume_nu">
+                    </div>
+                </div>
+
+                <!-- Câmpuri pentru cei care participă -->
+                <div id="form-da" class="hidden">
+                    <div class="form-group">
+                        <label for="nume-da">Nume și Prenume:</label>
+                        <input type="text" id="nume-da" name="nume_da">
+                    </div>
+                    <div class="form-group">
+                        <label for="nr-persoane">Număr de persoane (inclusiv dvs.):</label>
+                        <input type="number" id="nr-persoane" name="nr_persoane" min="1" value="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Meniu pentru copii?</label>
+                        <input type="checkbox" id="meniu-copii" name="meniu_copii">
+                        <label for="meniu-copii">Da</label>
+                    </div>
+                    <div class="form-group hidden" id="nr-copii-grup">
+                        <label for="nr-copii">Câte meniuri pentru copii?</label>
+                        <input type="number" id="nr-copii" name="nr_copii" min="0" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Aveți nevoie de ajutor cu cazarea?</label>
+                        <input type="checkbox" id="cazare" name="cazare">
+                        <label for="cazare">Da</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="comentarii">Comentarii sau mesaje pentru noi:</label>
+                        <textarea id="comentarii" name="comentarii" rows="4"></textarea>
+                    </div>
+                </div>
+
+                <button type="submit">Trimite Răspuns</button>
+            </form>
+           <p id="form-message" class="hidden"></p>
+             </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Cu drag, Bianca & Ionuț</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

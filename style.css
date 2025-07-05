@@ -1,0 +1,249 @@
+/* --- VARIANTA CORECTATĂ ȘI CURĂȚATĂ --- */
+
+/* --- 1. Variabile Globale și Fonturi --- */
+:root {
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --color-text: #333;
+    --color-bg: #fdfaf6; /* Un alb-crem cald */
+    --color-accent: #6a8274; /* Un verde elegant, se potrivește cu pozele */
+    --color-dark-bg: #2c2c2c;
+    --color-light-text: #f4f4f4;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    margin: 0;
+    line-height: 1.8;
+    font-weight: 300;
+    overflow-x: hidden; /* Previne scroll orizontal */
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    margin-top: 0;
+    color: var(--color-accent);
+}
+
+h2 { font-size: 2.5em; margin-bottom: 20px; }
+
+/* --- 2. Secțiunile Principale (Parallax și Hero) --- */
+.hero-section, .parallax-section {
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* MAGIA PENTRU PARALLAX ESTE AICI! */
+    background-attachment: fixed; 
+}
+
+.hero-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+/* Overlay pentru a face textul mai lizibil peste poză */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4); 
+}
+.hero-content {
+    position: relative; /* Asigură că textul e deasupra overlay-ului */
+    z-index: 1;
+}
+.hero-section h1 { font-size: 4em; color: white; letter-spacing: 3px; }
+.hero-section h2 { font-size: 2em; color: white; margin-bottom: -15px;}
+.hero-section p { font-size: 1.5em; }
+
+/* Secțiunile intermediare doar cu imagine */
+.parallax-section {
+    height: 50vh;
+    min-height: 400px;
+}
+
+
+/* --- 3. Secțiunile de Conținut --- */
+main {
+    /* Eliminăm max-width și padding de aici pentru a permite secțiunilor să fie full-width */
+}
+
+.content-section {
+    padding: 80px 40px;
+    text-align: center;
+    background-color: var(--color-bg);
+}
+.content-section p {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.parents-section, .event-details {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 40px;
+}
+.nasi { font-size: 1.2em; }
+
+
+/* --- 4. Secțiunea Timer --- */
+.dark-bg {
+    background-color: var(--color-dark-bg);
+    color: var(--color-light-text);
+}
+.dark-bg h2 {
+    color: white;
+}
+#timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+.timer-box { 
+    text-align: center;
+    font-size: 1.1em;
+}
+.timer-box div {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    min-width: 80px;
+}
+.timer-box span {
+    font-size: 3em;
+    font-family: var(--font-heading);
+    color: white;
+}
+
+
+/* --- 5. Secțiunea Formular RSVP --- */
+.rsvp-section {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    text-align: left;
+    max-width: 1100px;
+    margin: 0 auto; /* Centrează containerul secțiunii */
+}
+.rsvp-image-container, .rsvp-form-container {
+    flex: 1;
+}
+.rsvp-image-container img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+#rsvp-form {
+    margin-top: 20px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+/* Stilizăm input-urile de tip radio să fie aliniate */
+.form-group input[type="radio"],
+.form-group input[type="checkbox"] {
+    margin-right: 5px;
+}
+.form-group label[for="prezenta-da"],
+.form-group label[for="prezenta-nu"],
+.form-group label[for="meniu-copii"],
+.form-group label[for="cazare"] {
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: normal;
+}
+input[type="text"], input[type="number"], textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+}
+button[type="submit"] {
+    background-color: var(--color-accent);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: var(--font-body);
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+button[type="submit"]:hover {
+    background-color: #597063; /* O nuanță mai închisă de verde */
+}
+.hidden {
+    display: none;
+}
+#form-message {
+    margin-top: 20px;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 5px;
+}
+#form-message.success { background-color: #e8f5e9; color: #2e7d32; }
+#form-message.error { background-color: #ffebee; color: #c62828; }
+
+
+/* --- 6. Footer --- */
+footer {
+    text-align: center;
+    padding: 40px;
+    background-color: var(--color-dark-bg);
+    color: var(--color-light-text);
+    font-family: var(--font-heading);
+    font-size: 1.3em;
+}
+
+
+/* --- 7. Responsive Design (pentru ecrane mici) --- */
+@media (max-width: 768px) {
+    h2 { font-size: 2em; }
+    .hero-section h1 { font-size: 2.5em; }
+
+    /* FOARTE IMPORTANT: Dezactivăm parallax pe mobil pentru performanță și compatibilitate */
+    .hero-section, .parallax-section {
+        background-attachment: scroll;
+    }
+
+    .parents-section, .event-details, .rsvp-section {
+        flex-direction: column;
+    }
+
+    .content-section {
+        padding: 60px 20px;
+    }
+
+    .rsvp-section {
+        text-align: center;
+    }
+    .rsvp-form-container {
+        text-align: left; /* Păstrăm formularul aliniat la stânga pentru lizibilitate */
+    }
+
+    #timer {
+        flex-wrap: wrap; /* Permitem timer-ului sa treaca pe mai multe randuri */
+    }
+    .timer-box {
+        flex-basis: 40%; /* Ocupă aprox. jumătate din lățime */
+    }
+}
