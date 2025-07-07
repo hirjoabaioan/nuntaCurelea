@@ -69,8 +69,8 @@
         
         <!-- 6. Sectiunea Countdown Timer -->
         <section class="content-section dark-bg">
-             <h2>Timp rămas până la eveniment</h2>
-             <div id="timer">
+            <h2>Timp rămas până la eveniment</h2>
+            <div id="timer">
                 <div class="timer-box"><div><span id="days">0</span></div>Zile</div>
                 <div class="timer-box"><div><span id="hours">0</span></div>Ore</div>
                 <div class="timer-box"><div><span id="minutes">0</span></div>Minute</div>
@@ -80,64 +80,73 @@
 
         <!-- 7. Sectiunea RSVP (Formular) -->
         <section class="content-section rsvp-section">
-             <div class="rsvp-image-container">
-                 <img src="images/poza_generala.jpg" alt="Detalii nunta">
-             </div>
-             <div class="rsvp-form-container">
+            <div class="rsvp-image-container">
+                <img src="images/poza_generala.jpg" alt="Detalii nunta">
+            </div>
+            <div class="rsvp-form-container">
                 <h2>Confirmare Prezență</h2>
                 <p>Vă rugăm să ne confirmați prezența până la data de 01.10.2025 pentru a ne putea bucura împreună.</p>
             
-            <form id="rsvp-form">
-                <div class="form-floating">
-                    <p>Veți participa la eveniment?</p>
-                    <input class="form-check-input" type="radio" id="prezenta-da" name="prezenta" value="Da" required>
-                    <label class="form-check-label" for="prezenta-da">Da</label>
-                    <input class="form-check-input" type="radio" id="prezenta-nu" name="prezenta" value="Nu">
-                    <label class="form-check-label" for="prezenta-nu">Nu</label>
-                </div>
+                <form id="rsvp-form" class="mt-4">
+                    <div class="mb-3">
+                        <p class="mb-2">Veți participa la eveniment?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="prezenta-da" name="prezenta" value="Da" required>
+                            <label class="form-check-label" for="prezenta-da">Da</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="prezenta-nu" name="prezenta" value="Nu">
+                            <label class="form-check-label" for="prezenta-nu">Nu</label>
+                        </div>
+                    </div>
 
-                <!-- Câmpuri pentru cei care NU participă -->
-                <div id="form-nu" class="hidden">
-                    <div class="form-floating">
-                        <input class="form-control" type="text" id="nume-nu" name="nume_nu">
-                        <label for="nume-nu">Nume și Prenume:</label>
+                    <div id="form-nu" class="hidden">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nume-nu" name="nume_nu" placeholder="Nume și Prenume">
+                            <label for="nume-nu">Nume și Prenume</label>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Câmpuri pentru cei care participă -->
-                <div id="form-da" class="hidden">
-                    <div class="form-floating">
-                        <input class="form-check-input" type="text" id="nume-da" name="nume_da">
-                        <label class="form-check-label" for="nume-da">Nume și Prenume:</label>
-                    </div>
-                    <div class="form-floating">
-                        <label for="nr-persoane">Număr de persoane (inclusiv dvs.):</label>
-                        <input type="number" id="nr-persoane" name="nr_persoane" min="1" value="1">
-                    </div>
-                    <div class="form-floating">
-                        <label>Meniu vegan?</label>
-                        <input class="form-check-input" type="checkbox" id="meniu-copii" name="meniu_copii">
-                        <label class="form-check-albel" for="meniu-copii">Da</label>
-                    </div>
-                    <div class="form-floating hidden" id="nr-copii-grup">
-                        <label for="nr-copii">Câte meniuri vegane?</label>
-                        <input class="form-control" type="number" id="nr-copii" name="nr_copii" min="0" value="0">
-                    </div>
-                    <div class="form-floating">
-                        <label>Aveți nevoie de ajutor cu cazarea?</label>
-                        <input class="form-check-input" type="checkbox" id="cazare" name="cazare">
-                        <label class="form-check-label" for="cazare">Da</label>
-                    </div>
-                    <div class="form-floating">
-                        <textarea class="form-control" id="comentarii" name="comentarii" rows="4"></textarea>
-                        <label for="comentarii">Comentarii sau mesaje pentru noi:</label>
-                    </div>
-                </div>
+                    <div id="form-da" class="hidden">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nume-da" name="nume_da" placeholder="Nume și Prenume">
+                            <label for="nume-da">Nume și Prenume</label>
+                        </div>
+                        
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="nr-persoane" name="nr_persoane" min="1" value="1" placeholder="Număr de persoane">
+                            <label for="nr-persoane">Număr de persoane (inclusiv dvs.)</label>
+                        </div>
+                        
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="meniu-copii" name="meniu_copii">
+                            <label class="form-check-label" for="meniu-copii">
+                                Doresc meniu vegan
+                            </label>
+                        </div>
 
-                <button type="submit">Trimite Răspuns</button>
-            </form>
-           <p id="form-message" class="hidden"></p>
-             </div>
+                        <div class="form-floating mb-3 hidden" id="nr-copii-grup">
+                            <input type="number" class="form-control" id="nr-copii" name="nr_copii" min="0" value="0" placeholder="Câte meniuri vegane?">
+                            <label for="nr-copii">Câte meniuri vegane?</label>
+                        </div>
+
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="cazare" name="cazare">
+                            <label class="form-check-label" for="cazare">
+                                Am nevoie de ajutor cu cazarea
+                            </label>
+                        </div>
+                        
+                        <div class="form-floating">
+                            <textarea class="form-control" id="comentarii" name="comentarii" placeholder="Comentarii" style="height: 100px"></textarea>
+                            <label for="comentarii">Comentarii sau mesaje pentru noi:</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg mt-4">Trimite Răspuns</button>
+                </form>
+                <p id="form-message" class="hidden"></p>
+            </div>
         </section>
 
     </main>
