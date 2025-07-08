@@ -202,9 +202,14 @@ footer {
     h2 { font-size: 2em; }
     .hero-section h1 { font-size: 2.5em; }
 
-    /* FOARTE IMPORTANT: Dezactivăm parallax pe mobil pentru performanță și pentru a evita bug-uri vizuale */
-    .hero-section, .parallax-section {
-        background-attachment: scroll;
+    .second-zone {
+        background-position: calc(0% - 14rem);
+    }
+
+    .hero-section {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: calc(0% - 14rem) center;
     }
 
     .parents-section, .event-details, .rsvp-section {
@@ -215,6 +220,7 @@ footer {
     }
     .rsvp-section {
         text-align: center;
+        padding: 1rem 0.5rem;
     }
     .rsvp-form-container {
         margin-top: 30px;
