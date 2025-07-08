@@ -226,3 +226,12 @@ footer {
         margin-top: 30px;
     }
 }
+
+@media screen and (max-device-width: 812px) {
+    .hero-section,
+    .parallax-section {
+        background-attachment: scroll;
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+}
