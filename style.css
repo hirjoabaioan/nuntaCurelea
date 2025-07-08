@@ -209,7 +209,6 @@ footer {
     .hero-section {
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: calc(0% - 14rem) center;
     }
 
     .parents-section, .event-details, .rsvp-section {
